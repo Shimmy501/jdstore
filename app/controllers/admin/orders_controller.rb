@@ -11,8 +11,7 @@ end
 def show
   @order = Order.find(params[:id])
   @product_lists = @order.product_lists
-  
-end
+  end
 
 def ship
   @order = Order.find(params[:id])
