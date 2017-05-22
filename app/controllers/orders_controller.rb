@@ -44,12 +44,12 @@ def pay_with_wechat
 redirect_to order_path(@order.token), notice:"使用微信成功完成支付"
 end
 
-def destroy
-  @order = Order.find_by_token(params[:id])
-  @order.delete
-
-  redirect_to orders_path
-end
+# def destroy
+#   @order = Order.find_by_token(params[:id])
+#   @order.delete
+#
+#   redirect_to orders_path
+# end
 
 private
 
