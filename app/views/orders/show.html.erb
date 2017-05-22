@@ -49,6 +49,12 @@
       </tbody>
     </table>
 
+    <div class="pull-left">
+    <% if @order.order_placed? || @order.paid?%>
+    <%= link_to("申请取消订单", apply_to_cancel_order_path(@order), method: :post, class: "btn btn-lg btn-danger ")%>
+    <% end %>
+      </div>
+
 <% if !@order.is_paid? %>
     <div class="group pull-right">
       <%= link_to("以支付宝付款", pay_with_alipay_order_path(@order.token), method: :post, class: "btn btn-lg btn-danger ")%>
@@ -56,11 +62,8 @@
     </div>
     <% else %>
     <p class="text-center"> 此订单已支付完成</p>
-    <br>
-    <!-- <ul class="pull-right">
-      <li>  <%= link_to("取消订单", "#", method: :delete, class: "btn btn-lg btn-danger ")%></li>
-    </ul> -->
-    <% end %>
+  <% end %>
+
 
 
   </div>
